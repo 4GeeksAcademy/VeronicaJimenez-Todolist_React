@@ -11,10 +11,7 @@ const Container = (props) => {
 		setInputItem(e.target.value);
 	};
 
-	const handleSubmit = e => {
-		e.preventDefault();
-	}
-
+	
 	const whenEnter = e => {
 		if (e.key === "Enter"){
 			setNewItems(newItems.concat([inputItem]));
@@ -23,10 +20,7 @@ const Container = (props) => {
 	};
 	
 	const deleteItem = (e) => {
-		if (e.onClick){
-			setNewItems(newItems.filter([inputItem]));
-			setInputItem(" ")
-		}
+		
 	}
 
 	return (
