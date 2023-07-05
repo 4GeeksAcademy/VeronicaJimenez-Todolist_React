@@ -36,11 +36,11 @@ const Container = (props) => {
 
 	return (
 	
-		<div className="text-center">
+		<div className="container">
 			
-				<h1 className="text-center mt-5">Todos</h1>
+			<h1 >Todos</h1>
 				<input type="text" placeholder="What needs to be done?" onChange={inputOnList} value={inputItem} onKeyDown={whenEnter}></input>
-				<button onClick={whenclick}>Add to list</button>
+				<button className="boton" onClick={whenclick}>Add to list</button>
 				<ul>
 					
 					{newItems.map((task, i) => (
