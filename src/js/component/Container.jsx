@@ -15,12 +15,23 @@ const Container = (props) => {
 	const whenEnter = e => {
 		if (e.key === "Enter"){
 			setNewItems(newItems.concat([inputItem]));
-			setInputItem(" ")
+			setInputItem("")
 		} else {null}
 	};
-	
-	const deleteItem = (e) => {
-		
+	function whenclick () {
+		setNewItems(newItems.concat([inputItem]));
+		setInputItem("")
+	}
+
+
+	const deleteItem = (id) => {
+		let eliminados = []
+		eliminados = newItems.filter((item, index) => {
+			if (index !== id){
+				return item
+			}
+		})
+		setNewItems(eliminados)
 	}
 
 	return (
@@ -29,15 +40,18 @@ const Container = (props) => {
 			
 				<h1 className="text-center mt-5">Todos</h1>
 				<input type="text" placeholder="What needs to be done?" onChange={inputOnList} value={inputItem} onKeyDown={whenEnter}></input>
-				<button onClick={whenEnter}>Add to list</button>
+				<button onClick={whenclick}>Add to list</button>
 				<ul>
 					
 					{newItems.map((task, i) => (
-					<li key={i}> {task} <button onClick={()=> setNewItems(newItems.filter())}> x </button></li>)
-					)}	
+						<li key={i}> {task} 
+						<button onClick={()=> deleteItem(i)}> x 
+						</button>
+						</li>)
+  					)}
 					
 				</ul>
-				<div># Items Left</div>
+				<div> {newItems.length} Items Left</div>
 			
 		</div>
 	);
